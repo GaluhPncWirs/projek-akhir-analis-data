@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Membaca data
-data_sewa_sepeda = pd.read_csv("day.csv")
+data_sewa_sepeda = pd.read_csv("../data/day.csv")
 
 # Konversi kolom dteday menjadi datetime
 data_sewa_sepeda['dteday'] = pd.to_datetime(data_sewa_sepeda['dteday'])
