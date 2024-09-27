@@ -2,9 +2,20 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 # Membaca data
 data_sewa_sepeda = pd.read_csv("day.csv")
+
+# Cek direktori kerja saat ini
+st.write("Current Working Directory:", os.getcwd())
+
+# Cek apakah file CSV ada di direktori yang benar
+if os.path.exists("day.csv"):
+    st.write("File 'day.csv' ditemukan!")
+else:
+    st.error("File 'day.csv' tidak ditemukan. Cek path atau pastikan file telah diunggah.")
+
 
 # Konversi kolom dteday menjadi datetime
 data_sewa_sepeda['dteday'] = pd.to_datetime(data_sewa_sepeda['dteday'])
