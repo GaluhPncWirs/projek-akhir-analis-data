@@ -2,19 +2,15 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
 
 # Membaca data
-data_sewa_sepeda = pd.read_csv("day.csv")
+data_sewa_sepeda = pd.read_csv('day.csv')
 
 # Konversi kolom dteday menjadi datetime
 data_sewa_sepeda['dteday'] = pd.to_datetime(data_sewa_sepeda['dteday'])
 
 # Judul halaman dashboard
 st.title("Dashboard Penyewaan Sepeda 🚴")
-
-st.write("Current Working Directory:", os.getcwd())
-st.write("Files in Directory:", os.listdir())
 
 # Layout untuk filter interaktif
 st.sidebar.header("Filter Data")
@@ -67,10 +63,6 @@ ax.set_title('Pengaruh Cuaca terhadap Penyewaan Sepeda', fontsize=14)
 ax.set_ylabel('Rata-rata Jumlah Penyewaan')
 ax.set_xlabel('Kondisi Cuaca')
 st.pyplot(fig)
-
-# Menampilkan data tabel jika diinginkan
-with st.expander("📋 Tampilkan Data Asli"):
-    st.write(data_filtered)
 
 # Informasi tambahan tentang dataset
 st.sidebar.write("📅 **Tanggal Data**: ", min_date.strftime("%Y-%m-%d"), " s/d ", max_date.strftime("%Y-%m-%d"))
